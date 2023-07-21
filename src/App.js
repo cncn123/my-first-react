@@ -40,6 +40,7 @@ const App = () => {
     event.preventDefault()
     if (persons.some(a => a.name === newInfo.name)) {
       alert(`${newInfo.name} is already added to phonebook`)
+      personService.update(personObject,)
     } else {
       const personObject = newInfo
       personService.create(personObject).then(response => {
