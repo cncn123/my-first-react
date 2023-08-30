@@ -1,19 +1,22 @@
-import personService from '../services/persons'
+import personService from "../services/persons";
 
 const Persons = ({ persons, setPersons }) => {
-  const deleteInfo = (id) => {
-    console.log('id', id)
-    personService.delete(id).then(response => {
-      console.log(response)
-      setPersons(persons.map(person => person.id !== id))
-    })
-  }
+  const deleteInfo = (person) => {
+    const id = person.id
+    if (window.confirm(`Delete ${person.name}?`)) {
+      personService.delete(id).then((response) => {
+        setPersons((persons) => {
+          return persons.filter((person) => person.id !== id);
+        });
+      });
+    }
+  };
   return (
     <div>
       {persons.map((person) => (
         <li key={person.id}>
-          {person.name}-{person.number}
-          <button onClick={() => deleteInfo(person.id)}>delete</button>
+          {person.name} {person.number}
+          <button onClick={() => deleteInfo(person)}>delete</button>
         </li>
       ))}
     </div>
