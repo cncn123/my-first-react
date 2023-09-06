@@ -67,6 +67,7 @@ const App = () => {
             }, 5000);
           })
           .catch((error) => {
+            console.log('error', error)
             setMessage({
               msg: `Information of '${personFind.name}' has already been removed from server`,
               type: "error",
