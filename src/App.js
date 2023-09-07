@@ -61,7 +61,7 @@ const App = () => {
                 person.id !== personFind.id ? person : response.data
               )
             );
-            setMessage({ msg: `Added ${personObject.name}`, type: "info" });
+            setMessage({ msg: `Updated ${personObject.name}`, type: "info" });
             setTimeout(() => {
               setMessage(null);
             }, 5000);
